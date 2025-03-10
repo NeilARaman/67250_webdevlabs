@@ -1,0 +1,112 @@
+/* Global styles */
+* {
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 100;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+  padding: 5px;
+  margin: 5px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* Header styling */
+header {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin: 0;
+}
+
+#webname {
+  background-color: #92ad70;
+  color: white;
+  margin: 0;
+  padding: 10px;
+  text-align: left;
+}
+
+nav {
+  display: flex;
+  padding: 5px;
+  background-color: white;
+}
+
+/* Navigation styling */
+nav a {
+  text-decoration: none;
+  color: #92ad70;
+  margin-right: 15px;
+}
+
+nav a:hover {
+  color: #4a7023;
+}
+
+/* Main content styling */
+.main {
+  padding: 20px 10px;
+}
+
+/* Table styling */
+th {
+  padding: 12px 0;
+  background-color: #92ad70;
+  color: white;
+  width: fit-content;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* Table cell styling */
+td {
+  padding: 10px 15px;
+  text-align: center;
+}
+
+/* Add specific styling for contact information table */
+.main table {
+  margin: 20px 0 20px 0;
+  border-collapse: collapse;
+  width: 80%;
+  max-width: 600px;
+}
+
+.main table td a {
+  color: #4a7023;
+  text-decoration: none;
+}
+
+.main table td a:hover {
+  text-decoration: underline;
+}
+
+/* Form styling */
+form * {
+  display: block;
+  margin: auto;
+  text-align: center;
+}
+
+input[type="submit"] {
+  background-color: #92ad70;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  margin-top: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Footer styling */
+footer {
+  padding: 10px;
+  margin-top: 20px;
+} 
