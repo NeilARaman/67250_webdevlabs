@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Neil Aditya Raman">
+    <meta name="keywords" content="Carnegie Mellon University, Information Systems">
+    <meta name="description" content="Neil Aditya Raman professional website">
+    <title>Neil Aditya Raman</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/style.css">
+    <script src="../static/jquery-3.7.1.js"></script>
+    <script src="../static/script.js" defer></script>
+    <style>
+        .validation-message {
+            color: #d9534f;
+            font-size: 0.9em;
+            margin-top: 3px;
+            display: none;
+        }
+    </style>
+</head>
+<body onload="addYear()">
+    <header>
+        <h1 id="webname">Neil Aditya Raman</h1>
+        <nav>
+            <a href="../index.html">about</a>
+            <a href="cv.html">resume</a>
+            <a href="fun.html">play</a>
+            <a href="contact.html">contact</a>
+        </nav>
+    </header>
+    <div class="main">
+        <h2>Contact Me</h2>
+        <form id="contactForm">
+            <div>
+                <label for="name">Your name (required)</label>
+                <input type="text" id="name" name="name" required>
+                <span id="nameError" class="validation-message">Please enter your name</span>
+                
+                <label for="email">Your email (required)</label>
+                <input type="email" id="email" name="email" required>
+                <span id="emailError" class="validation-message">Please enter a valid email address</span>
+                
+                <label for="comment">Your comment (required)</label>
+            </div>
+            <div>
+                <textarea id="comment" name="comment" rows="8" cols="40" required></textarea>
+                <span id="commentError" class="validation-message">Please enter your message</span>
+            </div>
+            <div>
+                <input type="submit" value="SEND">
+            </div>
+        </form>
+        <p id="formReminder" style="color: #d9534f; margin-top: 10px; display: block; text-align: center;">Please fill out the required areas so I can get back to you</p>
+        <table>
+            <tr>
+                <th>Contact Method</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td>neilr@andrew.cmu.edu</td>
+            </tr>
+            <tr>
+                <td>Phone</td>
+                <td>+1 (469) 740-9069</td>
+            </tr>
+            <tr>
+                <td>LinkedIn</td>
+                <td><a href="http://www.linkedin.com/in/neil-raman21">LinkedIn</a></td>
+            </tr>
+        </table>
+    </div>
+    <footer>
+        <p>&copy; Neil Aditya Raman. All rights reserved.</p>
+        <p id="copyYear"></p>
+    </footer>
+
+    <script>
+        $(document).ready(function() {
+            function checkFormCompletion() {
+                const nameValue = $("#name").val().trim();
+                const emailValue = $("#email").val().trim();
+                const commentValue = $("#comment").val().trim();
+                
+                if (nameValue && emailValue && commentValue) {
+                    $("#formReminder").hide();
+                } else {
+                    $("#formReminder").show();
+                }
+            }
+            
+            $("#formReminder").show();
+            
+            checkFormCompletion();
+            
+            $("#name, #email, #comment").on("input", checkFormCompletion);
+
+            $("#contactForm").submit(function(event) {
+                let isValid = true;
+                
+                const nameInput = document.getElementById("name");
+                if (!nameInput.checkValidity()) {
+                    $("#nameError").show();
+                    isValid = false;
+                } else {
+                    $("#nameError").hide();
+                }
+                
+                const emailInput = document.getElementById("email");
+                if (!emailInput.checkValidity()) {
+                    $("#emailError").show();
+                    isValid = false;
+                } else {
+                    $("#emailError").hide();
+                }
+                
+                const commentInput = document.getElementById("comment");
+                if (!commentInput.checkValidity()) {
+                    $("#commentError").show();
+                    isValid = false;
+                } else {
+                    $("#commentError").hide();
+                }
+                
+                if (!isValid) {
+                    event.preventDefault();
+                } else {
+                    alert("Form submitted successfully!");
+                }
+            });
+        });
+    </script>
+</body>
+</html>
