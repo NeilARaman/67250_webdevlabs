@@ -1,0 +1,130 @@
+// Variables and operations
+x = 5
+y = 7
+z = x + y
+console.log(z)
+A = "Hello "
+B = "world!"
+C = A + B
+console.log(C)
+function SumNPrint(x1, x2) {
+    x3 = x1 + x2
+    return x3
+}
+console.log(SumNPrint(x, y))
+console.log(SumNPrint(A, B))
+if (C.length > z) {
+    console.log(C)
+} else if (C.length < z) {
+    console.log(z)
+} else {
+    console.log("good job!")
+}
+
+// Banana finder function - Only run on index page
+if (window.location.href.includes("index.html")) {
+    L1 = ["Watermelon", "Pineapple", "Pear", "Banana"] 
+    L2 = ["Apple", "Banana", "Kiwi", "Orange"]
+    function findTheBanana(array) {
+        for (let i = 0; i < array.length; i++) {
+            if (array[i] === "Banana") {
+                console.log("found the Banana in " + i)
+            }
+        }
+    }
+    L1.forEach(findTheBanana)
+    L2.forEach(findTheBanana)
+}
+
+// Greeting function
+function greetingFunc() {
+    d = new Date()
+    h = d.getHours()
+    let greeting = ""
+    if (h > 0 && h < 5) {
+        greeting = "Good night"
+    } else if (h > 5 && h < 12) {
+        greeting = "Good morning"
+    } else if (h > 12 && h < 18) {
+        greeting = "Good afternoon"
+    } else if (h > 18 && h < 20) {
+        greeting = "Good evening"
+    } else if (h > 20 && h < 24) {
+        greeting = "Good night"
+    }
+    return greeting
+}
+
+// Only apply greeting on index page
+if (window.location.href.includes("index.html")) {
+    const greetingElement = document.getElementById("greeting")
+    if (greetingElement) {
+        greetingElement.innerHTML = greetingFunc() + ", my name is Neil"
+    }
+}
+
+// Add year to footer - safe to run on all pages
+function addYear() {
+    currentYear = new Date().getFullYear()
+    const copyYearElement = document.getElementById("copyYear")
+    if (copyYearElement) {
+        copyYearElement.innerHTML = currentYear
+    }
+}
+
+/*
+function showList() {
+    const funList = document.getElementById("funList")
+    const showListButton = document.getElementById("showListButton")
+    
+    if (funList && showListButton) {
+        funList.style.display = "block"
+        showListButton.style.display = "none"
+    }
+}
+*/
+
+// Document ready functions - wrapped with element existence checks
+$(document).ready(function() {
+    // Read more/less functionality - only run if elements exist
+    if ($("#readMoreButton").length && $("#readLessButton").length && $("#longBio").length) {
+        $("#readMoreButton").click(function() {
+            $("#longBio").show();
+            $("#readMoreButton").hide();
+            $("#readLessButton").show();
+        });
+
+        $("#readLessButton").click(function() {
+            $("#longBio").hide();
+            $("#readLessButton").hide();
+            $("#readMoreButton").show();
+        });
+    }
+});
+
+// Advice API functionality - only call when button is clicked
+function getAdvice() {
+    const adviceText = document.getElementById("adviceText");
+    
+    if (!adviceText) {
+        console.error("Advice text element not found");
+        return;
+    }
+    
+    adviceText.innerText = "Loading advice...";
+    
+    fetch("https://api.adviceslip.com/advice")
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            adviceText.innerText = data.slip.advice;
+        })
+        .catch(error => {
+            adviceText.innerText = `Could not fetch advice: ${error.message}`;
+            console.error("Advice API error:", error);
+        });
+}
