@@ -2,7 +2,7 @@
 
 This is the repository for the web development part of 67-250, the Information Systems Milieux. I was tasked with creating a mock personal website in 5 parts, which through doing so, I worked hands-on with HTML, CSS, JavaScript, APIs, and libraries like JQuery.
 
-![Website Preview](67-250-webdevlabsphoto.png)
+![Website Preview](neilr-lab5/static/67-250-webdevlabsphoto.png)
 
 ## Features
 
