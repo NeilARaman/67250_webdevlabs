@@ -83,4 +83,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## Acknowledgements
 
 - Carnegie Mellon University
-- 67250 Web Development course instructors and staff
+- 67-250 course instructors and teaching assistants
